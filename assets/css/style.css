@@ -241,6 +241,14 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
+
+
+/* === Modal Guia turistico === */
+
+.models {
+    display: none;
+}
+
 .modal--guide {
     width: 270px;
     height: 360px;
@@ -282,7 +290,9 @@ main {
     font-family: var(--font-rounded);
 }
 
+
 /* === Footer === */
+
 footer {
     display: flex;
     flex-direction: column;
