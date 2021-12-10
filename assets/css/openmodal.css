@@ -1,19 +1,29 @@
-
-.open {
-    
-    position: absolute;
+.windowArea {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
+    z-index: 1;
+    transition: all ease-in 0.5s;
+}
+
+.open {
+    border-radius:10px;
+    box-shadow:0px 0px 15px #999;
 }
 
 .closer img {
     position: absolute;
-    top: 85px;
-    right: 360px;
+    top: 160px;
+    right: 356px;
     width: 30px;
     cursor: pointer;
 }

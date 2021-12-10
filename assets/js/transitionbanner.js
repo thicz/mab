@@ -8,7 +8,7 @@ function nextImage() {
 
     currentImageIndex++;
 
-    if(currentImageIndex >= max){
+    if(currentImageIndex >= max){ 
         currentImageIndex = 0
     }
     images[currentImageIndex].classList.add("selected");
