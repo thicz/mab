@@ -25,7 +25,7 @@ tourismJson.map((item, index) =>{
                 document.querySelector('.img img').src = tourismJson[key].images[carroselNumber];
             }
         })
-        console.log(tourismJson[key].images.length);
+
         document.querySelector('.slider--next').addEventListener('click', ()=>{
             if(carroselNumber < 4) {
                 carroselNumber++;
@@ -53,4 +53,60 @@ document.querySelector('.closer img').addEventListener('click', ()=>{
     setTimeout(()=>{
         document.querySelector('.windowArea').style.display = 'none';
     }, 500)
+});
+
+document.querySelector('.contact').addEventListener('click', (e)=> {
+    e.preventDefault();
+    document.querySelector('.windowContact').style.opacity = '0';
+        document.querySelector('.windowContact').style.display = 'flex';
+        setTimeout(()=>{
+            document.querySelector('.windowContact').style.opacity = '1';
+        }, 100)
+});
+
+document.querySelector('.secondCloser img').addEventListener('click', ()=>{
+    document.querySelector('.windowContact').style.opacity = '0';
+    setTimeout(()=>{
+        document.querySelector('.windowContact').style.display = 'none';
+    }, 500)
+});
+
+document.querySelector('.sobrelink').addEventListener('click', (e)=> {
+    e.preventDefault();
+    document.querySelector('.windowSobre').style.opacity = '0';
+        document.querySelector('.windowSobre').style.display = 'flex';
+        setTimeout(()=>{
+            document.querySelector('.windowSobre').style.opacity = '1';
+        }, 100)
+});
+
+document.querySelector('.closerSobre img').addEventListener('click', ()=>{
+    document.querySelector('.windowSobre').style.opacity = '0';
+    setTimeout(()=>{
+        document.querySelector('.windowSobre').style.display = 'none';
+    }, 500)
+});
+
+document.querySelector('.menu--icon').addEventListener('click', ()=> {
+    let headerMenu = document.querySelector('header .menu')
+    headerMenu.style.display = 'flex';
+
+    setTimeout(()=>{
+        headerMenu.style.right = '0';
+    }, 100)
+
+    
+
+});
+
+document.querySelector('.menu--closer').addEventListener('click', ()=>{
+        
+        let headerMenu = document.querySelector('header .menu');
+
+        headerMenu.style.right = '-50%';
+        setTimeout(()=>{
+            document.querySelector('header .menu').style.display = 'none';
+        }, 300)
+        
+        
 });

@@ -28,6 +28,7 @@ html {
 body {
     font-size: 1.6rem;
     background: var(--back-gray);
+    scroll-behavior:smooth;
 }
 .container {
     max-width: 1240px;
@@ -74,8 +75,61 @@ header .three {
     color: var(--color-pink);
 }
 
+/* === Menu Mobile=== */
+.menu--icon {
+    display: none;
+    align-items: center;
+}
+.menu--mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 38px;
+    height: 35px;
+    cursor: pointer;
+}
+.menu--mobile div {
+    width: 100%;
+    height: 5px;
+    background-color: var(--color-pink);
+    border-radius: 20px;
+}
+
+/* === Menu Mobile Closer === */
+
+.menu--closer {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    flex-direction: column;
+    height: 35px;
+    cursor: pointer;
+    transition: .3s;
+}
+.closerOne {
+    transform: rotate(-45deg);
+    width: 38px;
+    height: 5px;
+    background-color: var(--color-pink);
+    border-radius: 20px;
+    transform-origin: center;
+    top: 4px;
+    position: relative;
+}
+
+.closerTwo {
+    transform: rotate(45deg);
+    width: 38px;
+    height: 5px;
+    background-color: var(--color-pink);
+    border-radius: 20px;
+    transform-origin: center;
+}
+
 /* === Menu === */
 header .menu {
+    position: relative;
     display: flex;
     align-items: center;
 }
@@ -151,9 +205,10 @@ header nav .contact:hover {
     color: var(--color-pink);
 }
 #banner .text p {
-    font-size: var(--font-mulish);
+    font-size: 1.6rem;
     color: var(--color-darkGrey);
-    width: 620px;
+    max-width: 620px;
+    width: 90%;
 }
 #banner .text .social {
     margin-top: 100px;
@@ -182,7 +237,8 @@ header nav .contact:hover {
 }
 #banner .loop--images  {
     position: relative;
-    width: 430px;
+    max-width: 430px;
+    width: 90%;
     height: 500px;
     border-radius: 8px;
     /* Fazer a borda da imagem do banner com box-shadow -> Estudar isso. */
@@ -216,7 +272,8 @@ header nav .contact:hover {
 
 }
 .text--history p {
-    width: 1000px;
+    max-width: 1000px;
+    width: 90%;
 }
 
 
@@ -250,7 +307,8 @@ main {
 }
 
 .modal--guide {
-    width: 270px;
+    max-width: 270px;
+    width: 90%;
     height: 360px;
     border-radius: 8px;
     position: relative;
@@ -322,4 +380,144 @@ footer {
 .copy {
     color: #999999;
     font-weight: 500;
+}
+
+/* Responsive  */
+
+@media (max-width: 1024px) {
+    #banner {
+        height: auto;
+        
+    }
+    #banner .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    #banner .loop--images {
+        width: 430px;
+    }
+    #banner .text {
+        margin-top: 50px;
+        align-items: center;
+    }
+    #banner .text .social {
+        margin-top: 20px;
+    }
+    #banner .container .banner {
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    #banner .text pre {
+        display: flex;
+        justify-content: center;
+    }
+    #banner .text p {
+        text-align: center;
+    }
+}
+
+.show {
+    right: 0;
+}
+@media (max-width: 768px) {
+    .menu--closer {
+        display: flex;
+    }
+    .menu--icon {
+        display: flex;
+    }
+    header .menu {
+        display: none;
+        position:absolute;
+        right: -50%;
+        width: 300px;
+        height: 100vh;
+        background-color: white;
+        z-index: 1;
+        transition: all ease .5s;
+    }
+    header nav {
+        height: 100%;
+        width: 100%;
+    }
+    header nav ul {
+        height: inherit;
+        flex-direction: column;
+        justify-content: center;
+    }
+    header nav li {
+        display: flex;
+        height: 70px;
+    }
+    header nav li:hover {
+        background-color: #999999;
+    }
+    header nav .contact {
+        margin-left: 0;
+    }
+    header nav li a {
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        font-size: 1.8rem;
+    }
+
+    .guide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 486px) {
+    header .contents {
+        height: 80px;
+    }
+
+    .history {
+        margin: 0;
+    }
+    .title h1 {
+        font-size: 3rem;
+    }
+    .text--history {
+        font-size: 1.5rem;
+    }
+
+    main {
+        margin: 0;
+    }
+
+    .menu--mobile {
+        width: 35px;
+        height: 30px;
+    }
+    .menu--mobile div {
+        height: 4px;
+    }
+
+    .guide {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #banner .text h1, #banner .text h2, #banner .text h3, #banner .text h4 {
+        font-size: 5rem;
+    }
+    #banner .text p {
+        font-size: 1.4rem;
+    }
+    #banner .loop--images {
+        width: 340px;
+    }
+
+    .social {
+        margin: 0;
+    }
+    .social img {
+        width: 40px;
+    }
+    .info a {
+        font-size: 1.5rem;
+    }
+    .copy {
+        font-size: 1.5rem;
+    }
 }
