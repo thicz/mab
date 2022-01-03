@@ -1,4 +1,6 @@
 let carroselNumber = 0;
+let modalKey;
+
 tourismJson.map((item, index) =>{
     let itemMab = document.querySelector('.modal--guide').cloneNode(true);
 
@@ -7,34 +9,19 @@ tourismJson.map((item, index) =>{
     itemMab.querySelector('.modal--guide img').src = item.img;
     itemMab.addEventListener('click', (e)=>{
         let key = e.target.closest('.modal--guide').getAttribute('data-key');
-        carroselNumber = 0
+        
         document.querySelector('.open--title h1').innerHTML = tourismJson[key].name;
         document.querySelector('.tourism--text h1').innerHTML = `Sobre ${tourismJson[key].name}`;
         document.querySelector('.tourism--p p').innerHTML = tourismJson[key].description;
         document.querySelector('.second h1').innerHTML = `O que fazer em ${tourismJson[key].name}`;
         document.querySelector('.secondp p').innerHTML = tourismJson[key].description2;
         document.querySelector('.video').innerHTML = tourismJson[key].youtube;
-        document.querySelector('.img img').src = tourismJson[key].images[carroselNumber];
 
-        document.querySelector('.slider--return').addEventListener('click', ()=>{
-            if(carroselNumber > 0) {
-                carroselNumber--;
-                document.querySelector('.img img').src = tourismJson[key].images[carroselNumber];
-            } else {
-                carroselNumber = 4;
-                document.querySelector('.img img').src = tourismJson[key].images[carroselNumber];
-            }
-        })
-
-        document.querySelector('.slider--next').addEventListener('click', ()=>{
-            if(carroselNumber < 4) {
-                carroselNumber++;
-                document.querySelector('.img img').src = tourismJson[key].images[carroselNumber];
-            } else if (carroselNumber = 4) {
-                carroselNumber = 0;
-                document.querySelector('.img img').src = tourismJson[key].images[carroselNumber];
-            }
-            
+        let quantImg = tourismJson[key].images.length;
+        modalKey = quantImg - 1;
+        /* Preenchimento Carrosel de Imagens */
+        document.querySelectorAll('.img img').forEach((item, sizeIndex)=>{
+            item.src = tourismJson[key].images[sizeIndex];
         });
 
         document.querySelector('.windowArea').style.opacity = '0';
@@ -43,17 +30,50 @@ tourismJson.map((item, index) =>{
             document.querySelector('.windowArea').style.opacity = '1';
         }, 100)
 
+        
+
     });
 
     document.querySelector('.guide').append(itemMab);
 });
 
 document.querySelector('.closer img').addEventListener('click', ()=>{
+
+    carroselNumber = 0;
+    console.log(carroselNumber)
     document.querySelector('.windowArea').style.opacity = '0';
     setTimeout(()=>{
         document.querySelector('.windowArea').style.display = 'none';
     }, 500)
 });
+
+/* Click no carrosel das images */
+
+function prevSlider() {
+    if(carroselNumber == 0) {
+        carroselNumber = modalKey;
+        document.querySelector('.img').style.marginLeft = `calc(${carroselNumber} * -400px)`;
+    } else {
+        carroselNumber--;
+        document.querySelector('.img').style.marginLeft = `calc(${carroselNumber} * -400px)`; 
+    }
+    
+}
+
+function nextSlider() {
+    if(carroselNumber == modalKey) {
+        carroselNumber = 0;
+        document.querySelector('.img').style.marginLeft = `calc(${carroselNumber} * -400px)`;
+    } else {
+        carroselNumber++;
+        document.querySelector('.img').style.marginLeft = `calc(${carroselNumber} * -400px)`;  
+    }
+    
+};
+
+document.querySelector('.slider--return').addEventListener('click', prevSlider);
+document.querySelector('.slider--next').addEventListener('click', nextSlider);
+
 
 document.querySelector('.contact').addEventListener('click', (e)=> {
     e.preventDefault();
