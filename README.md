@@ -4,13 +4,13 @@ Description:<br>
 Visando em criar um projeto para portfolio, criei o projeto MabTurismo para mostrar os principais pontos turísticos da cidade de Marabá.
 
 <h3 align="center">Designer Desktop</h3>
-<img scr="">
+<img scr="https://github.com/thicz/mab/blob/master/mab.png">
 <br>
 <h3 align="center">Designer Tablet</h3>
-<img scr="">
+<img scr="https://github.com/thicz/mab/blob/master/mabtablet.png">
 <br>
 <h3 align="center">Designer Mobile</h3>
-<img scr="">
+<img scr="https://github.com/thicz/mab/blob/master/mabmobile.png">
 <br>
 
 <h3 align="center">Visualizar site ↓</h3>
