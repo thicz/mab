@@ -1,6 +1,5 @@
 <h1 align="center">MabTurismo</h1>
 
-Description:<br>
 Visando em criar um projeto para portfolio, criei o projeto MabTurismo para mostrar os principais pontos turísticos da cidade de Marabá.
 
 <h3 align="center">Designer Desktop</h3>
